@@ -1,0 +1,4 @@
+pytest
+playwright
+loguru
+playwright install
