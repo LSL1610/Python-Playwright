@@ -41,9 +41,9 @@ It is designed to automate common web test scenarios and demonstrate a clean and
 gh clone LSL1610/Python-Playwright
 cd your-repo-name
 
-### 2. Install dependencies
+**### 2. Install dependencies**
 pip install -r requirement.txt
 playwright install
 
-### 3. Run tests
+**### 3. Run tests**
 pytest
