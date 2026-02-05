@@ -38,5 +38,5 @@ It is designed to automate common web test scenarios and demonstrate a clean and
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+gh clone LSL1610/Python-Playwright
 cd your-repo-name
