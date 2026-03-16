@@ -18,7 +18,7 @@ class TestVibing:
             self.page.get_by_placeholder(Shopee.pw).fill(value=Shopee.passworld)
             self.page.get_by_role("button", name=Shopee.login_submit).click()
             login_stt = self.page.get_by_text(Shopee.login_vrf).is_visible()
-            if not login_stt:
+            if login_stt:
                 raise Exception("Login Fail")
             
             logger.debug("Login Success")
@@ -31,9 +31,11 @@ class TestVibing:
         try:
             self.page.goto(Lazada.host_name)
             self.page.get_by_placeholder(Lazada.search_place).fill(Lazada.product_name)
-            self.page.get_by_text(Lazada.search_btn).click()
-            lst_name = self.page.get_attribute(self.page.locator(Lazada.lst_product), name='title')
-            logger.debug(f'list product ==> {lst_name}')
+            self.page.get_by_role("link", name=Lazada.search_btn).click()
+            products = self.page.locator(Lazada.lst_product).all()
+            for idx, item in enumerate(products):
+                name = item.get_attribute("title")
+                logger.debug(f'product {idx} ==> {name}')
                 
         except Exception as e:
             logger.debug(e)
@@ -41,7 +43,7 @@ class TestVibing:
         finally:
             self.page.close()
 
-    def add_cart_demoblaze(self):
+    def test_add_cart_demoblaze(self):
         self.page.goto(DemoBlaze.DOMAIN)
         self.page.get_by_role("link", name="Log in").click()
         self.page.locator(DemoBlaze.login_usn).fill(DemoBlaze.username)
@@ -63,7 +65,7 @@ class TestVibing:
             except Exception as e:
                 print(e)
 
-    def food_for_friend(self):
+    def test_food_for_friend(self):
         with open('bubletea.txt', 'w', encoding='utf-8') as f:
             try:
                 self.page.goto(Food.host_name)
