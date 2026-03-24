@@ -1,4 +1,5 @@
 pytest
 playwright
 loguru
-playwright install
+pytest-xdist
+pytest-html

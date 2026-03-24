@@ -5,10 +5,10 @@ import pytest
 
 class TestVibing:
     @pytest.fixture(autouse=True)
-    def setup(self, page):
-        self.page = page
+    def setup(self, NormalBrowser):
+        self.page = NormalBrowser
 
-    def test_login_shopee_fail(self):
+    def test1_login_shopee_fail(self):
         try:
             self.page.goto(Shopee.DOMAIN)
             self.page.keyboard.down('Escape')
@@ -27,7 +27,7 @@ class TestVibing:
         finally:
             self.page.close()
 
-    def test_get_data_lazada(self):
+    def test2_get_data_lazada(self):
         try:
             self.page.goto(Lazada.host_name)
             self.page.get_by_placeholder(Lazada.search_place).fill(Lazada.product_name)
@@ -43,7 +43,7 @@ class TestVibing:
         finally:
             self.page.close()
 
-    def test_add_cart_demoblaze(self):
+    def test3_add_cart_demoblaze(self):
         self.page.goto(DemoBlaze.DOMAIN)
         self.page.get_by_role("link", name="Log in").click()
         self.page.locator(DemoBlaze.login_usn).fill(DemoBlaze.username)
@@ -65,7 +65,7 @@ class TestVibing:
             except Exception as e:
                 print(e)
 
-    def test_food_for_friend(self):
+    def test4_food_for_friend(self):
         with open('bubletea.txt', 'w', encoding='utf-8') as f:
             try:
                 self.page.goto(Food.host_name)
