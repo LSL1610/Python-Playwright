@@ -31,3 +31,9 @@ class Food:
     search_btn="a > .btn"
     lst_product='//*[@id="app"]/div/div[1]/ul/li'
     name_product='//*[@id="app"]/div/div[1]/div[2]/div/div/a/div/div/h4'
+
+class Paralle:
+    host_name = "https://www.saucedemo.com"
+    username_true = "standard_user"
+    pw_true = "secret_sauce"
+    pw_false = "wrong_password"

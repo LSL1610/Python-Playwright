@@ -13,4 +13,8 @@ class LoginPage:
         self.page.fill(self.password, pwd)
         self.page.click(self.login_btn)
         time.sleep(10)
+    
+    def getallatt(self, locator, att):
+        content = self.page.get_attribute(locator, att)
+        return content
         
