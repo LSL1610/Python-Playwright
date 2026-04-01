@@ -2,7 +2,7 @@ import pytest
 from pages.login_page import LoginPage
 from locator import Paralle as pr
 
-@pytest.mark.skip("No Run")
+# @pytest.mark.skip("No Run")
 def test_login_pass(MultipleBrowsers):
     MultipleBrowsers.goto(pr.host_name)
 
@@ -11,7 +11,7 @@ def test_login_pass(MultipleBrowsers):
     
     assert "inventory" in MultipleBrowsers.url
  
-@pytest.mark.skip("No Run")  
+# @pytest.mark.skip("No Run")
 def test_login_fail(MultipleBrowsers):
     MultipleBrowsers.goto(pr.host_name)
 

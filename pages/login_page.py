@@ -7,6 +7,7 @@ class LoginPage:
         self.username = "#user-name"
         self.password = "#password"
         self.login_btn = "#login-button"
+        self.vrf_login = "#shopping_cart_container > a"
 
     def login(self, user, pwd):
         self.page.fill(self.username, user)
@@ -17,4 +18,10 @@ class LoginPage:
     def getallatt(self, locator, att):
         content = self.page.get_attribute(locator, att)
         return content
-        
+    
+    def login_return_stt(self, user, pwd):
+        self.page.fill(self.username, user)
+        self.page.fill(self.password, pwd)
+        self.page.click(self.login_btn)
+        time.sleep(10)
+        self.page.locator(selector=self.vrf_login).is_visible()
